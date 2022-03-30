@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _jumpCountValue; //to set jumpcount to original value
 
     private Rigidbody2D _rigidbody;
+    private Animator _animator;
     private Vector3 _playerScale; //to flipping the sprite
     private Vector2 _direction;
     private float _originalGravity;
@@ -41,13 +42,15 @@ public class PlayerController : MonoBehaviour
         _originalGravity = _rigidbody.gravityScale;
         _jumpCount = _jumpCountValue; //setting jump count back to n jumps
         _playerScale = _sprite.transform.localScale;
-
+        _animator = GetComponent<Animator>();
     }
     private void Update()
     {
         UpdatePlayerInput();
         
         _isGrounded = Physics2D.OverlapCircle(_groundCheckPos.position, _groundCheckRadius,Ground);
+
+        _animator.SetFloat("Speed", Mathf.Abs(_direction.x));
         
         //checking for Jump Input
         if (Input.GetKeyDown(KeyCode.Space))
@@ -58,7 +61,14 @@ public class PlayerController : MonoBehaviour
         {
             _isTryingToJump = false;
         }
-
+        //if (Input.GetKeyDown(KeyCode.W))
+        //{
+        //    _animator.SetBool("TransitionTest", true);
+        //}
+        //if (Input.GetKeyDown(KeyCode.S))
+        //{
+        //    _animator.SetBool("TransitionTest", false);
+        //}
 
         Debug.Log($"Is grounded: {_isGrounded}");
         Debug.Log($"Is trying to Jump: {_isTryingToJump}");
