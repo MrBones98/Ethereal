@@ -22,7 +22,7 @@ public class ParallaxScrolling : MonoBehaviour
             _spriteRenderers.Add(renderer);
             Debug.Log(_spriteRenderers[i].name);
         }
-        Debug.Log(_spriteRenderers.Count);
+        //Debug.Log(_spriteRenderers.Count);
     }
     private void Update()
     {

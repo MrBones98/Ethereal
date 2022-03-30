@@ -16,18 +16,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _fallingGravity;
     
     [SerializeField] private Transform _groundCheckPos;
-    [SerializeField] private GameObject _sprite;
+    [SerializeField] private GameObject _sprite; //to access player sprite for flipping
     [SerializeField] private float _groundCheckRadius;
     [SerializeField] private float _jumpTime;
+    [SerializeField] private int _jumpCountValue; //to set jumpcount to original value
 
     private Rigidbody2D _rigidbody;
-    private Vector3 _playerScale;
+    private Vector3 _playerScale; //to flipping the sprite
     private Vector2 _direction;
     private float _originalGravity;
     private float _jumpTimeCounter;
+    private int _jumpCount; //implement
     private bool _isGrounded;
+    private bool _isGroundedHazard; //for damaging platforms
     private bool _isTryingToJump = false;
     private bool _isJumping = false;
+    private bool _canDoubleJump; //implement
 
     //Can rename to ground we can jump from or something of the sort as we add more surfaces
     public LayerMask Ground;
@@ -35,8 +39,9 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _originalGravity = _rigidbody.gravityScale;
-        //_playerScale = _sprite.transform.localScale;
-        
+        _jumpCount = _jumpCountValue; //setting jump count back to n jumps
+        _playerScale = _sprite.transform.localScale;
+
     }
     private void Update()
     {
@@ -62,6 +67,7 @@ public class PlayerController : MonoBehaviour
         if (_isGrounded)
         {
             _rigidbody.gravityScale = _originalGravity;
+            _jumpCount = _jumpCountValue; //setting jump count back to n jumps
         }
         else
         {
@@ -87,7 +93,7 @@ public class PlayerController : MonoBehaviour
         //{
         //    _rigidbody.gravityScale *= _multiplier;
         //}
-        //FacingDirection();
+        FacingDirection();
     }
 
     private void ExtendedJump()
@@ -103,17 +109,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //private void FacingDirection()
-    //{
-    //    if (_direction.x < 0)
-    //    {
-    //        _sprite.transform.localScale = new Vector3(-_playerScale.x, _playerScale.y, _playerScale.z);
-    //    }
-    //    else
-    //    {
-    //        _sprite.transform.localScale = new Vector3(_playerScale.x, _playerScale.y, _playerScale.z);
-    //    }
-    //}
+    private void FacingDirection()
+    {
+        if (_direction.x < 0)
+        {
+            _sprite.transform.localScale = new Vector3(-_playerScale.x, _playerScale.y, _playerScale.z);
+        }
+        else if(_direction.x > 0)
+        {
+            _sprite.transform.localScale = new Vector3(_playerScale.x, _playerScale.y, _playerScale.z);
+        }
+        //Here later will most likely all be replaces with setBools for animaiton states from the animator, this is just a showcase of easy flipping
+        
+    }
     private void FixedUpdate()
     {
         _rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
