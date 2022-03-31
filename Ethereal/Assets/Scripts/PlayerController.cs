@@ -6,7 +6,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Walking Speed")]
-    [SerializeField] private int _speed;
+    [SerializeField] private int _walkingSpeed;
+
+    [Header("Running Speed")]
+    [SerializeField] private int _runningSpeed;
+
+
+
 
     [Header("Jump Power")]
     //[Range(3000,4000)] //this is for AddForceOnly big boy number
@@ -27,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _direction;
     private float _originalGravity;
     private float _jumpTimeCounter;
+    private int _speed;
     private int _jumpCount; //implement
     private bool _isGrounded;
     private bool _isGroundedHazard; //for damaging platforms
@@ -43,6 +50,7 @@ public class PlayerController : MonoBehaviour
         _jumpCount = _jumpCountValue; //setting jump count back to n jumps
         _playerScale = _sprite.transform.localScale;
         _animator = GetComponent<Animator>();
+        _speed = _walkingSpeed;
     }
     private void Update()
     {
@@ -69,6 +77,16 @@ public class PlayerController : MonoBehaviour
         //{
         //    _animator.SetBool("TransitionTest", false);
         //}
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            _speed= _runningSpeed;
+            _animator.SetBool("Sprint", true);
+        }
+        else
+        {
+            _speed = _walkingSpeed;
+            _animator.SetBool("Sprint", false);
+        }
 
         Debug.Log($"Is grounded: {_isGrounded}");
         Debug.Log($"Is trying to Jump: {_isTryingToJump}");

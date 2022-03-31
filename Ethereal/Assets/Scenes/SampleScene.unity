@@ -1146,7 +1146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa04006c958c13044b9a38b628e847fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 100
+  _walkingSpeed: 78
+  _runningSpeed: 240
   _jumpPower: 15
   _fallingGravity: 20
   _groundCheckPos: {fileID: 72041696}
@@ -1202,7 +1203,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.83, y: 1.39}
+  m_Size: {x: 0.79, y: 1.41}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
