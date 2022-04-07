@@ -11,9 +11,6 @@ public class PlayerController : MonoBehaviour
     [Header("Running Speed")]
     [SerializeField] private int _runningSpeed;
 
-
-
-
     [Header("Jump Power")]
     //[Range(3000,4000)] //this is for AddForceOnly big boy number
     [SerializeField] private float _jumpPower;
@@ -33,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _direction;
     private float _originalGravity;
     private float _jumpTimeCounter;
+    private float _previousYVelocity;
     private int _speed;
     private int _jumpCount; //implement
     private bool _isGrounded;
@@ -58,7 +56,9 @@ public class PlayerController : MonoBehaviour
         
         _isGrounded = Physics2D.OverlapCircle(_groundCheckPos.position, _groundCheckRadius,Ground);
 
+        //for idle/walk/running animations. Do the same for jumping with _direction.y?/_rigidbody.velocity.y maybe
         _animator.SetFloat("Speed", Mathf.Abs(_direction.x));
+        _animator.SetBool("Landed", _isGrounded);
         
         //checking for Jump Input
         if (Input.GetKeyDown(KeyCode.Space))
@@ -69,14 +69,27 @@ public class PlayerController : MonoBehaviour
         {
             _isTryingToJump = false;
         }
-        //if (Input.GetKeyDown(KeyCode.W))
+        if (_rigidbody.velocity.y > 0)
+        {
+            _animator.SetBool("IsJumping", true);
+            _animator.SetBool("IsFalling", false);
+        }
+        else if (_rigidbody.velocity.y < 0)
+        {
+            _animator.SetBool("IsFalling", true);
+            _animator.SetBool("IsJumping", false);
+        }
+        else
+        {
+            _animator.SetBool("IsJumping", false);
+            _animator.SetBool("IsFalling", false);
+        }
+        //if( _isGrounded && _rigidbody.velocity.y < 0)
         //{
-        //    _animator.SetBool("TransitionTest", true);
+        //    //StartCoroutine(SetLanding());
+        //    //_animator.ResetTrigger("Land");
         //}
-        //if (Input.GetKeyDown(KeyCode.S))
-        //{
-        //    _animator.SetBool("TransitionTest", false);
-        //}
+       
         if (Input.GetKey(KeyCode.LeftShift))
         {
             _speed= _runningSpeed;
@@ -118,10 +131,26 @@ public class PlayerController : MonoBehaviour
         {
             _isJumping = false;
         }
-        //{
-        //    _rigidbody.gravityScale *= _multiplier;
-        //}
+
         FacingDirection();
+    }
+
+    private IEnumerator SetLanding()
+    {
+        _animator.SetTrigger("Land");
+        yield return new WaitForSeconds(1.0f);
+       
+    }
+
+    private void FixedUpdate()
+    {
+        _rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
+        //For later add clear method call for groundcheck, check neon runner perhaps and do callculations through parameters
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(_groundCheckPos.position, _groundCheckRadius);
     }
 
     private void ExtendedJump()
@@ -150,11 +179,6 @@ public class PlayerController : MonoBehaviour
         //Here later will most likely all be replaces with setBools for animaiton states from the animator, this is just a showcase of easy flipping
         
     }
-    private void FixedUpdate()
-    {
-        _rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
-        //For later add clear method call for groundcheck, check neon runner perhaps and do callculations through parameters
-    }
 
     private void Jump()
     {
@@ -170,12 +194,11 @@ public class PlayerController : MonoBehaviour
         _rigidbody.gravityScale = _fallingGravity;
         Debug.Log("Jumpy Jump");
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(_groundCheckPos.position, _groundCheckRadius);
-    }
 
+    public void OnLanding()
+    {
+        //animator.setBoolIsJumping false
+    }
     private void UpdatePlayerInput()
     {
         float moveX = 0f;
