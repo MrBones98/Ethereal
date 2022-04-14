@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,18 +6,26 @@ using UnityEngine;
 public class PotionSeller : MonoBehaviour
 {
     [SerializeField] private GameObject _interactTextObject;
+    [SerializeField] private GameObject _collectedPotionsTextObject;
     [SerializeField] private GameObject _canvas;
     [SerializeField] private List<GameObject> _text;
-    
+
+    private bool _potionsCollected = false;
     private bool _interacting = false;
     private int _index = 0;
 
     public delegate void PotionSpawned();
     public static event PotionSpawned onPotionsSpawned;
-    private void Start()
+    private void Awake()
     {
-
+        PotionSelector.onAllPotionsCollected += OnAllPotionsCollected;
     }
+
+    private void OnAllPotionsCollected()
+    {
+        _potionsCollected = true;  
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController playerController = collision.GetComponent<PlayerController>();
@@ -24,6 +33,10 @@ public class PotionSeller : MonoBehaviour
         {
             _interactTextObject.SetActive(true);
         }
+        //else if (_potionsCollected == true)
+        //{
+        //    _collectedPotionsTextObject.SetActive(true);
+        //}
     }
     private void Update()
     {
@@ -43,6 +56,7 @@ public class PotionSeller : MonoBehaviour
 
     private void CheckPlayerInteraction()
     {
+        //&& _potionsCollected == false events doing something fucky oh no daniel ahhhhh
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (_interactTextObject.activeSelf == true) _interactTextObject.SetActive(false);
@@ -58,6 +72,11 @@ public class PotionSeller : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         _interactTextObject.SetActive(false);
+        //_collectedPotionsTextObject.SetActive(false);
         _interacting = false;
+    }
+    private void OnDestroy()
+    {
+        PotionSelector.onAllPotionsCollected -= OnAllPotionsCollected;
     }
 }

@@ -8,10 +8,20 @@ public class PotionSelector : MonoBehaviour
     [SerializeField] private List<Transform> _spawnPoints;
     [SerializeField] private List<GameObject> _spawnedPotions = new List<GameObject>();
 
+    private int _collectedPotions = 0;
     private bool _isSpawned = false;
+
+    public delegate void PotionsCollected();
+    public static event PotionsCollected onAllPotionsCollected;
     private void Awake()
     {
         PotionSeller.onPotionsSpawned += OnSpawnPotions;
+        Potion.onPotionCollected += OnPotionListUpdate;
+    }
+
+    private void OnPotionListUpdate()
+    {
+        _collectedPotions++;
     }
 
     private void OnSpawnPotions()
@@ -26,8 +36,14 @@ public class PotionSelector : MonoBehaviour
         }
         _isSpawned = true;
     }
+    private void Update()
+    {
+        if (_collectedPotions == _spawnedPotions.Count) onAllPotionsCollected();
+        //Debug.Log($"Collected potions: {_collectedPotions}");
+    }
     private void OnDestroy()
     {
         PotionSeller.onPotionsSpawned -= OnSpawnPotions;
+        Potion.onPotionCollected -= OnPotionListUpdate;
     }
 }

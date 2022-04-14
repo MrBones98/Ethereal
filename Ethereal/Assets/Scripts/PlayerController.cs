@@ -89,8 +89,9 @@ public class PlayerController : MonoBehaviour
         //    //StartCoroutine(SetLanding());
         //    //_animator.ResetTrigger("Land");
         //}
-       
-        if (Input.GetKey(KeyCode.LeftShift))
+
+        //&& _isGrounded think about this
+        if (Input.GetKey(KeyCode.LeftShift) )
         {
             _speed= _runningSpeed;
             _animator.SetBool("Sprint", true);
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviour
             _animator.SetBool("Sprint", false);
         }
 
-        Debug.Log($"Is grounded: {_isGrounded}");
+        //Debug.Log($"Is grounded: {_isGrounded}");
         Debug.Log($"Is trying to Jump: {_isTryingToJump}");
 
         // Setting according gravity scale
@@ -119,7 +120,9 @@ public class PlayerController : MonoBehaviour
         //Checking for Jump, extract method
         //_isTryingToJump + _isJumping and
         //then the same holding key or not logic for DOUBLE JUMP
-        if (_isGrounded && _isTryingToJump)
+        
+        // && isGrounded later to avoid dumb bugs and to reduce _jumpcount if players drops off a platform
+        if (_isTryingToJump && _jumpCount > 0)
         {
             Jump();
         }
@@ -130,6 +133,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             _isJumping = false;
+            _jumpCount--;
         }
 
         FacingDirection();
