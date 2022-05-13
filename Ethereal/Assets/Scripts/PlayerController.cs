@@ -24,21 +24,29 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _jumpTime;
     [SerializeField] private int _jumpCountValue; //to set jumpcount to original value
 
+    [SerializeField] [Range(1,5)] private int _dashLenght;
+    [SerializeField] [Range(0.1f, 0.5f)] private float _dashDuration;
+    [SerializeField] [Range(0.2f, 1.0f)] private float _dashCooldown;
+    [SerializeField] [Range(0.5f, 0.9f)] private float _controllerAnalogRunningValue;
+
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private Vector3 _playerScale; //to flipping the sprite
     private Vector2 _direction;
+    private Vector2 _input;
+    private float _timeSinceDash = 0f;
     private float _originalGravity;
     private float _jumpTimeCounter;
     private float _previousYVelocity;
     private int _speed;
     private int _jumpCount; //implement
+    private bool _isTryingToJump = false;
+    private bool _isTryingToDash = false;
+    private bool _isJumping = false;
     private bool _isGrounded;
     private bool _isGroundedHazard; //for damaging platforms
-    private bool _isTryingToJump = false;
-    private bool _isJumping = false;
     private bool _canDoubleJump; //implement
-
+    private PlayerControls _playerControls;
     //Can rename to ground we can jump from or something of the sort as we add more surfaces
     public LayerMask Ground;
     private void Awake()
@@ -49,19 +57,25 @@ public class PlayerController : MonoBehaviour
         _playerScale = _sprite.transform.localScale;
         _animator = GetComponent<Animator>();
         _speed = _walkingSpeed;
+        _playerControls = new PlayerControls();
+    }
+    private void OnEnable()
+    {
+        _playerControls.Enable();
     }
     private void Update()
     {
         UpdatePlayerInput();
-        
-        _isGrounded = Physics2D.OverlapCircle(_groundCheckPos.position, _groundCheckRadius,Ground);
+
+        _isGrounded = Physics2D.OverlapCircle(_groundCheckPos.position, _groundCheckRadius, Ground);
 
         //for idle/walk/running animations. Do the same for jumping with _direction.y?/_rigidbody.velocity.y maybe
         _animator.SetFloat("Speed", Mathf.Abs(_direction.x));
         _animator.SetBool("Landed", _isGrounded);
-        
+
         //checking for Jump Input
-        if (Input.GetKeyDown(KeyCode.Space))
+        //if (Input.GetKeyDown(KeyCode.Space))
+        if (_playerControls.Base.Jump.triggered)
         {
             _isTryingToJump = true;
         }
@@ -84,6 +98,16 @@ public class PlayerController : MonoBehaviour
             _animator.SetBool("IsJumping", false);
             _animator.SetBool("IsFalling", false);
         }
+
+        if ((_playerControls.Base.Blink.triggered) && CanDash())
+        {
+            _isTryingToDash = true;
+        }
+        else
+        {
+            _isTryingToDash= false;
+        }
+        _timeSinceDash += Time.deltaTime;
         //if( _isGrounded && _rigidbody.velocity.y < 0)
         //{
         //    //StartCoroutine(SetLanding());
@@ -91,9 +115,10 @@ public class PlayerController : MonoBehaviour
         //}
 
         //&& _isGrounded think about this
-        if (Input.GetKey(KeyCode.LeftShift) )
+        //if (Input.GetKey(KeyCode.LeftShift))
+        if (_input.x > _controllerAnalogRunningValue || _input.x < -_controllerAnalogRunningValue)
         {
-            _speed= _runningSpeed;
+            _speed = _runningSpeed;
             _animator.SetBool("Sprint", true);
         }
         else
@@ -115,28 +140,32 @@ public class PlayerController : MonoBehaviour
         {
             _rigidbody.gravityScale = _fallingGravity;
         }
-        
 
-        //Checking for Jump, extract method
-        //_isTryingToJump + _isJumping and
-        //then the same holding key or not logic for DOUBLE JUMP
-        
+
+        //Checking for Jump, extract method 
+        JumpInputCheck();
+
+        FacingDirection();
+    }
+
+    private void JumpInputCheck()
+    {
         // && isGrounded later to avoid dumb bugs and to reduce _jumpcount if players drops off a platform
         if (_isTryingToJump && _jumpCount > 0)
         {
             Jump();
         }
-        if (Input.GetKey(KeyCode.Space) && _isJumping)
+        //if (Input.GetKey(KeyCode.Space) && _isJumping)
+        if (_playerControls.Base.Jump.ReadValue<float>() == 1 && _isJumping)
         {
             ExtendedJump();
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        //if (Input.GetKeyUp(KeyCode.Space))
+        if (_playerControls.Base.Jump.WasReleasedThisFrame())
         {
             _isJumping = false;
             _jumpCount--;
         }
-
-        FacingDirection();
     }
 
     private IEnumerator SetLanding()
@@ -148,9 +177,28 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
+        //if (!IsDashing())
+        //{
+        //    //_rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
+        //    if (_isTryingToDash && CanDash())
+        //    {
+        //        StartDash();
+        //    }
+        //}
         //For later add clear method call for groundcheck, check neon runner perhaps and do callculations through parameters
     }
+
+    private void StartDash()
+    {
+        Vector2 dashPosition = ((Vector2)transform.position) + _direction * _dashLenght;
+        Vector2 dashVelocity = (dashPosition - (Vector2)transform.position) / _dashDuration;
+
+        _rigidbody.velocity = dashVelocity;
+        _timeSinceDash = 0;
+        _isTryingToDash = false;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
@@ -205,11 +253,12 @@ public class PlayerController : MonoBehaviour
     }
     private void UpdatePlayerInput()
     {
+        _input = _playerControls.Base.Movement.ReadValue<Vector2>();
         float moveX = 0f;
         float moveY = 0f;
 
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        //if (Input.GetKeyDown(KeyCode.Space))
+        if(_playerControls.Base.Jump.WasPressedThisFrame())
         {
             _isTryingToJump = true;
         }
@@ -217,28 +266,33 @@ public class PlayerController : MonoBehaviour
         {
             _isTryingToJump = false;
         }
-        //if (Input.GetKey(KeyCode.W))
-        //{
-        //    moveY += 1f;
-        //}
-        //if (Input.GetKey(KeyCode.S))
-        //{
-        //    moveY -= 1f;
-        //}
 
         //Introduce jump somewhere along here as well,
         //decide whether we want physics as well
         //Remember to later switch to either Input.GetAxisRaw and/or
         //use unity's new input system for easier controller integration
-        if (Input.GetKey(KeyCode.D))
+        //if (Input.GetKey(KeyCode.D))
+        if(_input.x > 0)
         {
             moveX += 1f;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (_input.x < 0)
         {
             moveX -= 1f;
         }
 
         _direction = new Vector2(moveX, moveY).normalized;
+    }
+    private bool CanDash()
+    {
+        return _timeSinceDash >= _dashCooldown;
+    }
+    private bool IsDashing()
+    {
+        return _timeSinceDash <= _dashCooldown;
+    }
+    private void OnDisable()
+    {
+        _playerControls.Disable();
     }
 }
