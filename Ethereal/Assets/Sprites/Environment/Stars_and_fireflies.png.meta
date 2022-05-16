@@ -1,0 +1,543 @@
+fileFormatVersion: 2
+guid: d7df0821d714e2e45995a6adb3a620e0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8140459231058371496
+    second: Stars_and_fireflies_0
+  - first:
+      213: 908831190241202754
+    second: Stars_and_fireflies_1
+  - first:
+      213: 4333512929490309639
+    second: Stars_and_fireflies_2
+  - first:
+      213: 9043245840837252934
+    second: Stars_and_fireflies_3
+  - first:
+      213: -5643288813715407673
+    second: Stars_and_fireflies_6
+  - first:
+      213: 1579149505310055496
+    second: Stars_and_fireflies_7
+  - first:
+      213: -3307213214302891607
+    second: Stars_and_fireflies_9
+  - first:
+      213: 8763774145922982333
+    second: Stars_and_fireflies_11
+  - first:
+      213: 6708231021549453804
+    second: Stars_and_fireflies_12
+  - first:
+      213: 5677175124243052243
+    second: Stars_and_fireflies_23
+  - first:
+      213: 7979135666935507263
+    second: Stars_and_fireflies_10
+  - first:
+      213: 4084417385563791528
+    second: Stars_and_fireflies_14
+  - first:
+      213: 7664368368975453914
+    second: Stars_and_fireflies_15
+  - first:
+      213: 5449734702002448344
+    second: Stars_and_fireflies_16
+  - first:
+      213: -5360734537737622777
+    second: Stars_and_fireflies_18
+  - first:
+      213: 1152769991430179035
+    second: Stars_and_fireflies_19
+  - first:
+      213: 7266037001293599070
+    second: Stars_and_fireflies_21
+  - first:
+      213: -6326709530124594859
+    second: Stars_and_fireflies_22
+  - first:
+      213: -2156676312327915084
+    second: Stars_and_fireflies_24
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Stars_and_fireflies_0
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 946
+        width: 139
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85c57389577470f80800000000000000
+      internalID: -8140459231058371496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_1
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 951
+        width: 105
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2425f1ff621dc9c00800000000000000
+      internalID: 908831190241202754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_2
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 938
+        width: 123
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70215d7ac0bb32c30800000000000000
+      internalID: 4333512929490309639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_3
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 942
+        width: 120
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64712a7dd20108d70800000000000000
+      internalID: 9043245840837252934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_6
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 883
+        width: 153
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ccbe8d29b20fa1b0800000000000000
+      internalID: -5643288813715407673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_7
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 967
+        width: 79
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84c5d3fbb144ae510800000000000000
+      internalID: 1579149505310055496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_9
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 924
+        width: 108
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a19ffc9a1b6a12d0800000000000000
+      internalID: -3307213214302891607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_12
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 891
+        width: 104
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce106b6829c681d50800000000000000
+      internalID: 6708231021549453804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_23
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 717
+        width: 99
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d6f03052b069ce40800000000000000
+      internalID: 5677175124243052243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_10
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 724
+        width: 55
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3927522d959bbe60800000000000000
+      internalID: 7979135666935507263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_14
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 712
+        width: 61
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a0a5f4d8f3cea830800000000000000
+      internalID: 4084417385563791528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_15
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 709
+        width: 70
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ade958c8c6e4d5a60800000000000000
+      internalID: 7664368368975453914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_16
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 714
+        width: 55
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d7a9f866d851ab40800000000000000
+      internalID: 5449734702002448344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_18
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 714
+        width: 84
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b2bfe1758da95b0800000000000000
+      internalID: -5360734537737622777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_19
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 716
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd80de613367fff00800000000000000
+      internalID: 1152769991430179035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_21
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 714
+        width: 56
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5113f2d72626d460800000000000000
+      internalID: 7266037001293599070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_22
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 712
+        width: 65
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55158d3e3330338a0800000000000000
+      internalID: -6326709530124594859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stars_and_fireflies_24
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 716
+        width: 70
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b9f13c0252f112e0800000000000000
+      internalID: -2156676312327915084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

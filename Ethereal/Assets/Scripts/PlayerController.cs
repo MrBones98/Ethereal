@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _jumpTime;
     [SerializeField] private int _jumpCountValue; //to set jumpcount to original value
 
-    [SerializeField] [Range(1,5)] private int _dashLenght;
-    [SerializeField] [Range(0.1f, 0.5f)] private float _dashDuration;
+    [SerializeField] [Range(5,20)] private int _dashLenght;
+    [SerializeField] [Range(0.2f, 1.0f)] private float _dashDuration;
     [SerializeField] [Range(0.2f, 1.0f)] private float _dashCooldown;
     [SerializeField] [Range(0.5f, 0.9f)] private float _controllerAnalogRunningValue;
 
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _playerScale; //to flipping the sprite
     private Vector2 _direction;
     private Vector2 _input;
-    private float _timeSinceDash = 0f;
+    private float _timeSinceDash;
     private float _originalGravity;
     private float _jumpTimeCounter;
     private float _previousYVelocity;
@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
     private int _jumpCount; //implement
     private bool _isTryingToJump = false;
     private bool _isTryingToDash = false;
+    private bool _canMove = true;
+    private bool _isDashing = false;
     private bool _isJumping = false;
     private bool _isGrounded;
     private bool _isGroundedHazard; //for damaging platforms
@@ -59,6 +61,10 @@ public class PlayerController : MonoBehaviour
         _speed = _walkingSpeed;
         _playerControls = new PlayerControls();
     }
+    private void Start()
+    {
+        _timeSinceDash = 0f;
+    }
     private void OnEnable()
     {
         _playerControls.Enable();
@@ -72,9 +78,9 @@ public class PlayerController : MonoBehaviour
         //for idle/walk/running animations. Do the same for jumping with _direction.y?/_rigidbody.velocity.y maybe
         _animator.SetFloat("Speed", Mathf.Abs(_direction.x));
         _animator.SetBool("Landed", _isGrounded);
+        _animator.SetBool("IsBlinking", IsDashing());
 
         //checking for Jump Input
-        //if (Input.GetKeyDown(KeyCode.Space))
         if (_playerControls.Base.Jump.triggered)
         {
             _isTryingToJump = true;
@@ -99,20 +105,12 @@ public class PlayerController : MonoBehaviour
             _animator.SetBool("IsFalling", false);
         }
 
-        if ((_playerControls.Base.Blink.triggered) && CanDash())
+        if (_playerControls.Base.Blink.triggered && CanDash())
         {
             _isTryingToDash = true;
         }
-        else
-        {
-            _isTryingToDash= false;
-        }
+
         _timeSinceDash += Time.deltaTime;
-        //if( _isGrounded && _rigidbody.velocity.y < 0)
-        //{
-        //    //StartCoroutine(SetLanding());
-        //    //_animator.ResetTrigger("Land");
-        //}
 
         //&& _isGrounded think about this
         //if (Input.GetKey(KeyCode.LeftShift))
@@ -128,7 +126,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Debug.Log($"Is grounded: {_isGrounded}");
-        Debug.Log($"Is trying to Jump: {_isTryingToJump}");
+        //Debug.Log($"Is trying to Jump: {_isTryingToJump}");
 
         // Setting according gravity scale
         if (_isGrounded)
@@ -136,16 +134,24 @@ public class PlayerController : MonoBehaviour
             _rigidbody.gravityScale = _originalGravity;
             _jumpCount = _jumpCountValue; //setting jump count back to n jumps
         }
+        else if (IsDashing())
+        {
+            _rigidbody.gravityScale = 0;
+        }
         else
         {
             _rigidbody.gravityScale = _fallingGravity;
         }
 
 
-        //Checking for Jump, extract method 
+        //Checking for Jump
         JumpInputCheck();
 
         FacingDirection();
+        Debug.Log($"The player is trying to dash: {_isTryingToDash}");
+        Debug.Log($"The player can dash: {CanDash()}");
+        Debug.Log($"Is the player dashing? {IsDashing()}");
+        Debug.Log(_rigidbody.velocity);
     }
 
     private void JumpInputCheck()
@@ -166,6 +172,10 @@ public class PlayerController : MonoBehaviour
             _isJumping = false;
             _jumpCount--;
         }
+        if(_rigidbody.velocity.y < 0 && _jumpCount == _jumpCountValue)
+        {
+            _jumpCount--;
+        }
     }
 
     private IEnumerator SetLanding()
@@ -177,21 +187,23 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //_rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
+        if (!IsDashing() && _canMove)
+        {
             _rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
-        //if (!IsDashing())
-        //{
-        //    //_rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
-        //    if (_isTryingToDash && CanDash())
-        //    {
-        //        StartDash();
-        //    }
-        //}
+            if (_isTryingToDash && CanDash())
+            {
+                StartDash();
+                //_animator.SetBool("IsBlinking", false);
+            }
+        }
         //For later add clear method call for groundcheck, check neon runner perhaps and do callculations through parameters
     }
 
     private void StartDash()
     {
-        Vector2 dashPosition = ((Vector2)transform.position) + _direction * _dashLenght;
+        //_animator.SetBool("IsBlinking", true);
+        Vector2 dashPosition = ((Vector2)transform.position + _direction * _dashLenght);
         Vector2 dashVelocity = (dashPosition - (Vector2)transform.position) / _dashDuration;
 
         _rigidbody.velocity = dashVelocity;
@@ -244,7 +256,7 @@ public class PlayerController : MonoBehaviour
         _jumpTimeCounter = _jumpTime;
         _rigidbody.velocity = Vector2.up * _jumpPower;
         _rigidbody.gravityScale = _fallingGravity;
-        Debug.Log("Jumpy Jump");
+        //Debug.Log("Jumpy Jump");
     }
 
     public void OnLanding()
@@ -257,7 +269,6 @@ public class PlayerController : MonoBehaviour
         float moveX = 0f;
         float moveY = 0f;
 
-        //if (Input.GetKeyDown(KeyCode.Space))
         if(_playerControls.Base.Jump.WasPressedThisFrame())
         {
             _isTryingToJump = true;
@@ -267,11 +278,7 @@ public class PlayerController : MonoBehaviour
             _isTryingToJump = false;
         }
 
-        //Introduce jump somewhere along here as well,
-        //decide whether we want physics as well
-        //Remember to later switch to either Input.GetAxisRaw and/or
-        //use unity's new input system for easier controller integration
-        //if (Input.GetKey(KeyCode.D))
+        //Movement direction check for sprite flip
         if(_input.x > 0)
         {
             moveX += 1f;
@@ -289,7 +296,7 @@ public class PlayerController : MonoBehaviour
     }
     private bool IsDashing()
     {
-        return _timeSinceDash <= _dashCooldown;
+        return _timeSinceDash <= _dashDuration;
     }
     private void OnDisable()
     {

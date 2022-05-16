@@ -1871,7 +1871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8312976081176866606, guid: 4e0cfa58b86e18c49beaae5c472d59c9, type: 3}
       propertyPath: _dashLenght
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8312976081176866606, guid: 4e0cfa58b86e18c49beaae5c472d59c9, type: 3}
       propertyPath: _dashCooldown
@@ -1879,7 +1879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8312976081176866606, guid: 4e0cfa58b86e18c49beaae5c472d59c9, type: 3}
       propertyPath: _dashDuration
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8312976081176866606, guid: 4e0cfa58b86e18c49beaae5c472d59c9, type: 3}
       propertyPath: _runningSpeed
@@ -1896,6 +1896,18 @@ PrefabInstance:
     - target: {fileID: 8312976081176866606, guid: 4e0cfa58b86e18c49beaae5c472d59c9, type: 3}
       propertyPath: _controllerAnalogRunningValue
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312976081176866607, guid: 4e0cfa58b86e18c49beaae5c472d59c9, type: 3}
+      propertyPath: m_Size.x
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312976081176866607, guid: 4e0cfa58b86e18c49beaae5c472d59c9, type: 3}
+      propertyPath: m_Size.y
+      value: 1.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312976081176866607, guid: 4e0cfa58b86e18c49beaae5c472d59c9, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8312976081176866773, guid: 4e0cfa58b86e18c49beaae5c472d59c9, type: 3}
       propertyPath: m_Name
