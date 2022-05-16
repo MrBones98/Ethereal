@@ -22,9 +22,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _sprite; //to access player sprite for flipping
     [SerializeField] private float _groundCheckRadius;
     [SerializeField] private float _jumpTime;
+    [SerializeField] private int _dashLenght; //leave at 4
     [SerializeField] private int _jumpCountValue; //to set jumpcount to original value
 
-    [SerializeField] [Range(5,20)] private int _dashLenght;
     [SerializeField] [Range(0.2f, 1.0f)] private float _dashDuration;
     [SerializeField] [Range(0.2f, 1.0f)] private float _dashCooldown;
     [SerializeField] [Range(0.5f, 0.9f)] private float _controllerAnalogRunningValue;
@@ -203,7 +203,9 @@ public class PlayerController : MonoBehaviour
     private void StartDash()
     {
         //_animator.SetBool("IsBlinking", true);
-        Vector2 dashPosition = ((Vector2)transform.position + _direction * _dashLenght);
+        //Vector2 dashPosition = ((Vector2)transform.position + _direction * _dashLenght);
+        //Vector2 dashPosition = ((Vector2)transform.position + (Vector2)transform.forward * _dashLenght);
+        Vector2 dashPosition = ((Vector2)transform.position + new Vector2(_sprite.transform.localScale.x,0) * _dashLenght);
         Vector2 dashVelocity = (dashPosition - (Vector2)transform.position) / _dashDuration;
 
         _rigidbody.velocity = dashVelocity;
