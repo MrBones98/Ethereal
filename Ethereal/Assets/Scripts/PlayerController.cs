@@ -14,13 +14,19 @@ public class PlayerController : MonoBehaviour
     [Header("Jump Power")]
     //[Range(3000,4000)] //this is for AddForceOnly big boy number
     [SerializeField] private float _jumpPower;
+    [SerializeField] private float _xAxisWallJumpForce;
+    [SerializeField] private float _yAxisWallJumpForce;
 
     [Header("Gravity while falling")]
     [SerializeField] private float _fallingGravity;
     
+    [Header("Collision Check")]
     [SerializeField] private Transform _groundCheckPos;
-    [SerializeField] private GameObject _sprite; //to access player sprite for flipping
+    [SerializeField] private Transform _frontCheckPos;
     [SerializeField] private float _groundCheckRadius;
+    [SerializeField] private float _wallCheckRadius;
+
+    [SerializeField] private GameObject _sprite; //to access player sprite for flipping
     [SerializeField] private float _jumpTime;
     [SerializeField] private int _dashLenght; //leave at 4
     [SerializeField] private int _jumpCountValue; //to set jumpcount to original value
@@ -43,11 +49,14 @@ public class PlayerController : MonoBehaviour
     private bool _isTryingToJump = false;
     private bool _isTryingToDash = false;
     private bool _canMove = true;
-    private bool _isDashing = false;
+    //private bool _isDashing = false;
     private bool _isJumping = false;
     private bool _isGrounded;
+    private bool _wallCollision;
+    private bool _hangingFromWall = false;
+    private bool _isWallJumping;
     private bool _isGroundedHazard; //for damaging platforms
-    private bool _canDoubleJump; //implement
+    //private bool _canDoubleJump; //implement
     private PlayerControls _playerControls;
     //Can rename to ground we can jump from or something of the sort as we add more surfaces
     public LayerMask Ground;
@@ -74,11 +83,13 @@ public class PlayerController : MonoBehaviour
         UpdatePlayerInput();
 
         _isGrounded = Physics2D.OverlapCircle(_groundCheckPos.position, _groundCheckRadius, Ground);
+        _wallCollision = Physics2D.OverlapCircle(_frontCheckPos.position, _wallCheckRadius, Ground);
 
         //for idle/walk/running animations. Do the same for jumping with _direction.y?/_rigidbody.velocity.y maybe
         _animator.SetFloat("Speed", Mathf.Abs(_direction.x));
         _animator.SetBool("Landed", _isGrounded);
         _animator.SetBool("IsBlinking", IsDashing());
+        _animator.SetBool("IsHangingFromWall", _hangingFromWall);
 
         //checking for Jump Input
         if (_playerControls.Base.Jump.triggered)
@@ -94,7 +105,7 @@ public class PlayerController : MonoBehaviour
             _animator.SetBool("IsJumping", true);
             _animator.SetBool("IsFalling", false);
         }
-        else if (_rigidbody.velocity.y < 0)
+        else if (_rigidbody.velocity.y < 0 && !_hangingFromWall)
         {
             _animator.SetBool("IsFalling", true);
             _animator.SetBool("IsJumping", false);
@@ -133,6 +144,7 @@ public class PlayerController : MonoBehaviour
         {
             _rigidbody.gravityScale = _originalGravity;
             _jumpCount = _jumpCountValue; //setting jump count back to n jumps
+            _hangingFromWall = false;
         }
         else if (IsDashing())
         {
@@ -143,15 +155,27 @@ public class PlayerController : MonoBehaviour
             _rigidbody.gravityScale = _fallingGravity;
         }
 
-
+        //Doing Wall Jump check
+        if(!_isGrounded && _wallCollision && _input.x !=0)
+        {
+            _hangingFromWall = true;
+            Debug.Log($"Wall collision is: {_wallCollision}");
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
+            //_rigidbody.gravityScale = 0;
+        }
+        else
+        {
+            _hangingFromWall = false;
+        }
+        Debug.Log($"The player is hanging from wall: {_hangingFromWall}");
         //Checking for Jump
         JumpInputCheck();
 
         FacingDirection();
-        Debug.Log($"The player is trying to dash: {_isTryingToDash}");
-        Debug.Log($"The player can dash: {CanDash()}");
-        Debug.Log($"Is the player dashing? {IsDashing()}");
-        Debug.Log(_rigidbody.velocity);
+        //Debug.Log($"The player is trying to dash: {_isTryingToDash}");
+        //Debug.Log($"The player can dash: {CanDash()}");
+        //Debug.Log($"Is the player dashing? {IsDashing()}");
+        //Debug.Log(_rigidbody.velocity);
     }
 
     private void JumpInputCheck()
@@ -217,6 +241,7 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(_groundCheckPos.position, _groundCheckRadius);
+        Gizmos.DrawSphere(_frontCheckPos.position, _wallCheckRadius);
     }
 
     private void ExtendedJump()

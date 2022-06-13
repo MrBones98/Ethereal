@@ -53,6 +53,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interaction"",
+                    ""type"": ""Button"",
+                    ""id"": ""f961835b-7fc2-47fc-bed4-e6e3d4996faa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -264,6 +273,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Blink"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a5a1498f-182f-494c-9f21-f4822e2ff682"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de0c4ab9-1c6b-4e37-a446-0c1f4069f495"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -275,6 +306,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Base_Movement = m_Base.FindAction("Movement", throwIfNotFound: true);
         m_Base_Jump = m_Base.FindAction("Jump", throwIfNotFound: true);
         m_Base_Blink = m_Base.FindAction("Blink", throwIfNotFound: true);
+        m_Base_Interaction = m_Base.FindAction("Interaction", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -337,6 +369,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Base_Movement;
     private readonly InputAction m_Base_Jump;
     private readonly InputAction m_Base_Blink;
+    private readonly InputAction m_Base_Interaction;
     public struct BaseActions
     {
         private @PlayerControls m_Wrapper;
@@ -344,6 +377,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Base_Movement;
         public InputAction @Jump => m_Wrapper.m_Base_Jump;
         public InputAction @Blink => m_Wrapper.m_Base_Blink;
+        public InputAction @Interaction => m_Wrapper.m_Base_Interaction;
         public InputActionMap Get() { return m_Wrapper.m_Base; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -362,6 +396,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Blink.started -= m_Wrapper.m_BaseActionsCallbackInterface.OnBlink;
                 @Blink.performed -= m_Wrapper.m_BaseActionsCallbackInterface.OnBlink;
                 @Blink.canceled -= m_Wrapper.m_BaseActionsCallbackInterface.OnBlink;
+                @Interaction.started -= m_Wrapper.m_BaseActionsCallbackInterface.OnInteraction;
+                @Interaction.performed -= m_Wrapper.m_BaseActionsCallbackInterface.OnInteraction;
+                @Interaction.canceled -= m_Wrapper.m_BaseActionsCallbackInterface.OnInteraction;
             }
             m_Wrapper.m_BaseActionsCallbackInterface = instance;
             if (instance != null)
@@ -375,6 +412,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Blink.started += instance.OnBlink;
                 @Blink.performed += instance.OnBlink;
                 @Blink.canceled += instance.OnBlink;
+                @Interaction.started += instance.OnInteraction;
+                @Interaction.performed += instance.OnInteraction;
+                @Interaction.canceled += instance.OnInteraction;
             }
         }
     }
@@ -384,5 +424,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnBlink(InputAction.CallbackContext context);
+        void OnInteraction(InputAction.CallbackContext context);
     }
 }

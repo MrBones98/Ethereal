@@ -13,14 +13,19 @@ public class PotionSeller : MonoBehaviour
     private bool _potionsCollected = false;
     private bool _interacting = false;
     private int _index = 0;
+    private PlayerControls _playerControls;
 
     public delegate void PotionSpawned();
     public static event PotionSpawned onPotionsSpawned;
     private void Awake()
     {
         PotionSelector.onAllPotionsCollected += OnAllPotionsCollected;
+        _playerControls = new PlayerControls();
     }
-
+    private void OnEnable()
+    {
+        _playerControls.Enable();
+    }
     private void OnAllPotionsCollected()
     {
         _potionsCollected = true;  
@@ -57,8 +62,10 @@ public class PotionSeller : MonoBehaviour
     private void CheckPlayerInteraction()
     {
         //&& _potionsCollected == false events doing something fucky oh no daniel ahhhhh
-        if (Input.GetKeyDown(KeyCode.E))
+        //if (Input.GetKeyDown(KeyCode.E))
+        if(_playerControls.Base.Interaction.triggered)
         {
+            Debug.Log("Player interacted");
             if (_interactTextObject.activeSelf == true) _interactTextObject.SetActive(false);
             if (_index == _text.Count - 1) _index = 0;
 
@@ -74,6 +81,10 @@ public class PotionSeller : MonoBehaviour
         _interactTextObject.SetActive(false);
         //_collectedPotionsTextObject.SetActive(false);
         _interacting = false;
+    }
+    private void OnDisable()
+    {
+        _playerControls.Disable();
     }
     private void OnDestroy()
     {

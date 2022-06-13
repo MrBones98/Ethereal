@@ -1,0 +1,612 @@
+fileFormatVersion: 2
+guid: 9914dbc63a79e244ca167da23792602d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4418445028033044191
+    second: GrapplingSheet_0
+  - first:
+      213: 7464133372833718142
+    second: GrapplingSheet_2
+  - first:
+      213: -5333285544030308565
+    second: GrapplingSheet_3
+  - first:
+      213: 8511461681380358759
+    second: GrapplingSheet_4
+  - first:
+      213: -4023388663385729127
+    second: GrapplingSheet_5
+  - first:
+      213: 8977265654463582628
+    second: GrapplingSheet_6
+  - first:
+      213: -4623470410160681472
+    second: GrapplingSheet_7
+  - first:
+      213: 1941748051261300427
+    second: GrapplingSheet_8
+  - first:
+      213: 4033994363033604239
+    second: GrapplingSheet_9
+  - first:
+      213: 9008521960203878392
+    second: GrapplingSheet_10
+  - first:
+      213: -8515006307437050278
+    second: GrapplingSheet_11
+  - first:
+      213: 2864541927674273210
+    second: GrapplingSheet_12
+  - first:
+      213: 9054241258617247281
+    second: GrapplingSheet_13
+  - first:
+      213: -1136656366164246569
+    second: GrapplingSheet_14
+  - first:
+      213: 8786154797575214553
+    second: GrapplingSheet_15
+  - first:
+      213: -1269545718329122114
+    second: GrapplingSheet_16
+  - first:
+      213: -5557566661017273803
+    second: GrapplingSheet_17
+  - first:
+      213: -6600084227270718903
+    second: GrapplingSheet_18
+  - first:
+      213: -4867548941984833985
+    second: GrapplingSheet_19
+  - first:
+      213: 1815375735741568188
+    second: GrapplingSheet_20
+  - first:
+      213: -1341405730814053785
+    second: GrapplingSheet_21
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GrapplingSheet_0
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 841
+        width: 98
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde1083d758715d30800000000000000
+      internalID: 4418445028033044191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_2
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 842
+        width: 98
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f54e381cde59760800000000000000
+      internalID: 7464133372833718142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_3
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 842
+        width: 98
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b27f85efd0d5cf5b0800000000000000
+      internalID: -5333285544030308565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_4
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 842
+        width: 109
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76a7606bd49ce1670800000000000000
+      internalID: 8511461681380358759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_5
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 842
+        width: 117
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9975f85d35d0a28c0800000000000000
+      internalID: -4023388663385729127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_6
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 842
+        width: 132
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a1dd949c87a59c70800000000000000
+      internalID: 8977265654463582628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_7
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 842
+        width: 115
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00ec7dc782226dfb0800000000000000
+      internalID: -4623470410160681472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 842
+        width: 129
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bce9cb6909972fa10800000000000000
+      internalID: 1941748051261300427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_9
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 842
+        width: 128
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f80db8a0080abf730800000000000000
+      internalID: 4033994363033604239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_10
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 848
+        width: 141
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fff14d5ef2b40d70800000000000000
+      internalID: 9008521960203878392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_11
+      rect:
+        serializedVersion: 2
+        x: 1655
+        y: 851
+        width: 141
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a560109b0ee94d980800000000000000
+      internalID: -8515006307437050278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_12
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 587
+        width: 137
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abddc3bc4b5e0c720800000000000000
+      internalID: 2864541927674273210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_13
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 586
+        width: 141
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 136119a047027ad70800000000000000
+      internalID: 9054241258617247281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_14
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 590
+        width: 127
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dff717ae09c930f0800000000000000
+      internalID: -1136656366164246569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_15
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 580
+        width: 111
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d59013cc31bee970800000000000000
+      internalID: 8786154797575214553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 570
+        width: 101
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb2efd045eaa16ee0800000000000000
+      internalID: -1269545718329122114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_17
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 565
+        width: 101
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53af28a219e8fd2b0800000000000000
+      internalID: -5557566661017273803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_18
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 331
+        width: 90
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94aced13d5ac764a0800000000000000
+      internalID: -6600084227270718903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_19
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 327
+        width: 85
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e5a22d60ef27cb0800000000000000
+      internalID: -4867548941984833985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_20
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 326
+        width: 85
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb45db60d92813910800000000000000
+      internalID: 1815375735741568188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrapplingSheet_21
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 327
+        width: 84
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 762b72b489e526de0800000000000000
+      internalID: -1341405730814053785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Platform : MonoBehaviour
 {
     [SerializeField] private float _timer;
-
+    [SerializeField] private bool _breakable;
     private SpriteRenderer _renderer;
     private Vector4 _originalColor;
     private void Start()
@@ -17,7 +17,7 @@ public class Platform : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerController playerController = collision.collider.gameObject.GetComponent<PlayerController>();
-        if (playerController != null)
+        if (playerController != null && _breakable)
         {
             StartCoroutine(PlatformBreakDown());
             Destroy(gameObject);
