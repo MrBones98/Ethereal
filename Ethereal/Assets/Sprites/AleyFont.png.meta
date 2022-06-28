@@ -1,0 +1,1092 @@
+fileFormatVersion: 2
+guid: 238f6ebdd78735c4194bb2f3f4ca5f10
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7731073823482941408
+    second: AleyFont_0
+  - first:
+      213: -4489620608551543021
+    second: AleyFont_1
+  - first:
+      213: 116731525873627950
+    second: AleyFont_2
+  - first:
+      213: 3658470987540850317
+    second: AleyFont_3
+  - first:
+      213: 7316680514583455144
+    second: AleyFont_4
+  - first:
+      213: -3850765003258511102
+    second: AleyFont_5
+  - first:
+      213: -6403453200022066431
+    second: AleyFont_6
+  - first:
+      213: 2318345562376315010
+    second: AleyFont_7
+  - first:
+      213: -168402945052762798
+    second: AleyFont_8
+  - first:
+      213: -9111698229467627012
+    second: AleyFont_9
+  - first:
+      213: -6720356153654845075
+    second: AleyFont_10
+  - first:
+      213: 223873683518334100
+    second: AleyFont_11
+  - first:
+      213: -3083060090551586991
+    second: AleyFont_12
+  - first:
+      213: 7582277750944526446
+    second: AleyFont_13
+  - first:
+      213: 6575615150540958419
+    second: AleyFont_14
+  - first:
+      213: -5527881576649085017
+    second: AleyFont_15
+  - first:
+      213: -4953140992838673382
+    second: AleyFont_16
+  - first:
+      213: -3914402998990866124
+    second: AleyFont_17
+  - first:
+      213: 1303931240013914479
+    second: AleyFont_18
+  - first:
+      213: 4150015188567660429
+    second: AleyFont_19
+  - first:
+      213: 6056000347561085142
+    second: AleyFont_20
+  - first:
+      213: -3085168238532554181
+    second: AleyFont_21
+  - first:
+      213: 6611665390084325257
+    second: AleyFont_22
+  - first:
+      213: -2953786856636095695
+    second: AleyFont_23
+  - first:
+      213: 1526441038236512436
+    second: AleyFont_24
+  - first:
+      213: -1595283404693422635
+    second: AleyFont_25
+  - first:
+      213: -5655441593635599430
+    second: AleyFont_26
+  - first:
+      213: -3294897212444979113
+    second: AleyFont_27
+  - first:
+      213: 5734627966659897942
+    second: AleyFont_28
+  - first:
+      213: -3613979325447442671
+    second: AleyFont_29
+  - first:
+      213: 8907498587569363625
+    second: AleyFont_30
+  - first:
+      213: -8945600663037688481
+    second: AleyFont_31
+  - first:
+      213: -964006159609279828
+    second: AleyFont_32
+  - first:
+      213: 164366393756838301
+    second: AleyFont_33
+  - first:
+      213: 6148068437848932443
+    second: AleyFont_34
+  - first:
+      213: -7695035071163309855
+    second: AleyFont_35
+  - first:
+      213: 8308705464412551103
+    second: AleyFont_36
+  - first:
+      213: 4406614847008005990
+    second: AleyFont_37
+  - first:
+      213: 2569680487633663865
+    second: AleyFont_38
+  - first:
+      213: -5790544906621119256
+    second: AleyFont_39
+  - first:
+      213: -7092400024910734821
+    second: AleyFont_40
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AleyFont_0
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 808
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef85057eaa4a4b60800000000000000
+      internalID: 7731073823482941408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_1
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 804
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31f1303f7d9a1b1c0800000000000000
+      internalID: -4489620608551543021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_2
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 803
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2379cd44b6be9100800000000000000
+      internalID: 116731525873627950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_3
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 801
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d86e171daff75c230800000000000000
+      internalID: 3658470987540850317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_4
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 805
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a5e4ce99221a8560800000000000000
+      internalID: 7316680514583455144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_5
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 804
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201454bb1a55f8ac0800000000000000
+      internalID: -3850765003258511102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_6
+      rect:
+        serializedVersion: 2
+        x: 1159
+        y: 812
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10ba8d4dd3d5227a0800000000000000
+      internalID: -6403453200022066431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_7
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 807
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2802b00810b6c2020800000000000000
+      internalID: 2318345562376315010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_8
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 801
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25d1009e966b9adf0800000000000000
+      internalID: -168402945052762798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_9
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 805
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf1c6047cbebc8180800000000000000
+      internalID: -9111698229467627012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_10
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 804
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d61ea492faf7cb2a0800000000000000
+      internalID: -6720356153654845075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_11
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 543
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4942ba4ddeb5b1300800000000000000
+      internalID: 223873683518334100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_12
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 551
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15f2d71be25c635d0800000000000000
+      internalID: -3083060090551586991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_13
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 538
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e60756d1179a93960800000000000000
+      internalID: 7582277750944526446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_14
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 552
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3daababe327414b50800000000000000
+      internalID: 6575615150540958419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_15
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 541
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7afa7677ef40943b0800000000000000
+      internalID: -5527881576649085017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_16
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 541
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1cdc678288e24bb0800000000000000
+      internalID: -4953140992838673382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_17
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 544
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 439fc69363f3da9c0800000000000000
+      internalID: -3914402998990866124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_18
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 546
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f616094ed8e781210800000000000000
+      internalID: 1303931240013914479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_19
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 540
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d871d0783d0d79930800000000000000
+      internalID: 4150015188567660429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_20
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 542
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d84504ea3c3b0450800000000000000
+      internalID: 6056000347561085142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_21
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 536
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3213fd35d74f25d0800000000000000
+      internalID: -3085168238532554181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_22
+      rect:
+        serializedVersion: 2
+        x: 1674
+        y: 555
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98f78b564aa51cb50800000000000000
+      internalID: 6611665390084325257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_23
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 292
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 133ecf3f08a0207d0800000000000000
+      internalID: -2953786856636095695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_24
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 287
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b07aae69020f2510800000000000000
+      internalID: 1526441038236512436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_25
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 289
+        width: 65
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dd3c23123a6cd9e0800000000000000
+      internalID: -1595283404693422635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_26
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 287
+        width: 65
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb816b95d5d381b0800000000000000
+      internalID: -5655441593635599430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_27
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 295
+        width: 70
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750dac0417c2642d0800000000000000
+      internalID: -3294897212444979113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_28
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 296
+        width: 70
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65aa8c790cd759f40800000000000000
+      internalID: 5734627966659897942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_29
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 301
+        width: 125
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11f691183f098ddc0800000000000000
+      internalID: -3613979325447442671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_30
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 293
+        width: 75
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aa9d5d75cacd9b70800000000000000
+      internalID: 8907498587569363625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_31
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 301
+        width: 90
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f55c321c797dad380800000000000000
+      internalID: -8945600663037688481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_32
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 297
+        width: 90
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caa433f51892f92f0800000000000000
+      internalID: -964006159609279828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_33
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 293
+        width: 90
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9963e04d52f74200800000000000000
+      internalID: 164366393756838301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_34
+      rect:
+        serializedVersion: 2
+        x: 1687
+        y: 291
+        width: 90
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50c6cc9ba3525550800000000000000
+      internalID: 6148068437848932443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_35
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 33
+        width: 90
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e063217f5eb53590800000000000000
+      internalID: -7695035071163309855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_36
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 34
+        width: 90
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb738a539937e4370800000000000000
+      internalID: 8308705464412551103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_37
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 35
+        width: 90
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66fdfd92bd0772d30800000000000000
+      internalID: 4406614847008005990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_38
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 44
+        width: 90
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97738abe9c659a320800000000000000
+      internalID: 2569680487633663865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_39
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 37
+        width: 90
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e496e8461ad3afa0800000000000000
+      internalID: -5790544906621119256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AleyFont_40
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 803
+        width: 125
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a593621cbb29d90800000000000000
+      internalID: -7092400024910734821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

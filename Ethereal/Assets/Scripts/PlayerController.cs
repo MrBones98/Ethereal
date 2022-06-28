@@ -14,8 +14,9 @@ public class PlayerController : MonoBehaviour
     [Header("Jump Power")]
     //[Range(3000,4000)] //this is for AddForceOnly big boy number
     [SerializeField] private float _jumpPower;
-    [SerializeField] private float _xAxisWallJumpForce;
-    [SerializeField] private float _yAxisWallJumpForce;
+    [SerializeField] private float _horizontalWallForce;
+    [SerializeField] private float _verticalWallForce;
+    [SerializeField] private float _wallJumpDuration;
 
     [Header("Gravity while falling")]
     [SerializeField] private float _fallingGravity;
@@ -35,17 +36,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Range(0.2f, 1.0f)] private float _dashCooldown;
     [SerializeField] [Range(0.5f, 0.9f)] private float _controllerAnalogRunningValue;
 
+
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private Vector3 _playerScale; //to flipping the sprite
     private Vector2 _direction;
     private Vector2 _input;
+    private float _wallJumpCount;
     private float _timeSinceDash;
     private float _originalGravity;
     private float _jumpTimeCounter;
-    private float _previousYVelocity;
     private int _speed;
     private int _jumpCount; //implement
+    private bool _isInputEnabled = true;
     private bool _isTryingToJump = false;
     private bool _isTryingToDash = false;
     private bool _canMove = true;
@@ -54,7 +57,7 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
     private bool _wallCollision;
     private bool _hangingFromWall = false;
-    private bool _isWallJumping;
+    private bool _isWallJumping = false;
     private bool _isGroundedHazard; //for damaging platforms
     //private bool _canDoubleJump; //implement
     private PlayerControls _playerControls;
@@ -73,6 +76,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _timeSinceDash = 0f;
+        _wallJumpCount = 0f;  
     }
     private void OnEnable()
     {
@@ -156,10 +160,11 @@ public class PlayerController : MonoBehaviour
         }
 
         //Doing Wall Jump check
-        if(!_isGrounded && _wallCollision && _input.x !=0)
+        if(!_isGrounded && _wallCollision && _input.x !=0 && !_isWallJumping)
         {
+            Debug.Log("Going where you're not suposed to code ahh");
             _hangingFromWall = true;
-            Debug.Log($"Wall collision is: {_wallCollision}");
+            //Debug.Log($"Wall collision is: {_wallCollision}");
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             //_rigidbody.gravityScale = 0;
         }
@@ -167,11 +172,14 @@ public class PlayerController : MonoBehaviour
         {
             _hangingFromWall = false;
         }
-        Debug.Log($"The player is hanging from wall: {_hangingFromWall}");
+        //Debug.Log($"The player is hanging from wall: {_hangingFromWall}");
         //Checking for Jump
+        
         JumpInputCheck();
+        //BRRRRRRRRRROOOOOOOOOOOOOOOOOO FIX THIS WTFFFFF RIGIDBODY MAAAAAAN COÑOOOOOOOOOO
 
         FacingDirection();
+        Debug.Log(_hangingFromWall);
         //Debug.Log($"The player is trying to dash: {_isTryingToDash}");
         //Debug.Log($"The player can dash: {CanDash()}");
         //Debug.Log($"Is the player dashing? {IsDashing()}");
@@ -181,17 +189,18 @@ public class PlayerController : MonoBehaviour
     private void JumpInputCheck()
     {
         // && isGrounded later to avoid dumb bugs and to reduce _jumpcount if players drops off a platform
-        if (_isTryingToJump && _jumpCount > 0)
+        if (_isTryingToJump && _jumpCount > 0 && !_hangingFromWall)
         {
+            Debug.Log("The dude is normal jumping");
             Jump();
         }
         //if (Input.GetKey(KeyCode.Space) && _isJumping)
-        if (_playerControls.Base.Jump.ReadValue<float>() == 1 && _isJumping)
+        if (_playerControls.Base.Jump.ReadValue<float>() == 1 && _isJumping && !_hangingFromWall)
         {
             ExtendedJump();
         }
         //if (Input.GetKeyUp(KeyCode.Space))
-        if (_playerControls.Base.Jump.WasReleasedThisFrame())
+        if (_playerControls.Base.Jump.WasReleasedThisFrame() && !_hangingFromWall)
         {
             _isJumping = false;
             _jumpCount--;
@@ -200,6 +209,43 @@ public class PlayerController : MonoBehaviour
         {
             _jumpCount--;
         }
+
+        if(_isTryingToJump && _hangingFromWall)
+        {
+            _isWallJumping = true;
+            _jumpCount++;
+        }
+        if (_isTryingToJump && _isWallJumping)
+        {
+            _isInputEnabled = false;
+            WallJump();
+            _isWallJumping=false;
+            _isInputEnabled = true;
+        }
+    }
+
+    //private void WallJumpSetter()
+    //{
+    //    _isWallJumping = false;
+    //}
+
+    private void WallJump()
+    {
+        Debug.Log("Going into the WallJump function, AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+        //float direction = _input.x;
+        //_rigidbody.velocity = new Vector2(_horizontalWallForce * -direction, _verticalWallForce);
+        //Debug.Log(_rigidbody.velocity);
+        //_rigidbody.AddForce(new Vector2(_horizontalWallForce * -transform.localScale.x, _verticalWallForce),ForceMode2D.Impulse);
+        if(_jumpCount > 0)
+        {
+            _jumpCount += 1;
+        }
+        //Vector2 wallJumpForce;
+
+        //wallJumpForce.x = _horizontalWallForce * transform.localScale.x;
+        //wallJumpForce.y = _verticalWallForce;
+
+        //_rigidbody.AddForce(wallJumpForce, ForceMode2D.Impulse);
     }
 
     private IEnumerator SetLanding()
@@ -212,7 +258,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         //_rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
-        if (!IsDashing() && _canMove)
+        if (!IsDashing() && _isInputEnabled && !_isWallJumping)
         {
             _rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
             if (_isTryingToDash && CanDash())
@@ -221,6 +267,7 @@ public class PlayerController : MonoBehaviour
                 //_animator.SetBool("IsBlinking", false);
             }
         }
+        //JumpInputCheck();
         //For later add clear method call for groundcheck, check neon runner perhaps and do callculations through parameters
     }
 
@@ -283,19 +330,13 @@ public class PlayerController : MonoBehaviour
         _jumpTimeCounter = _jumpTime;
         _rigidbody.velocity = Vector2.up * _jumpPower;
         _rigidbody.gravityScale = _fallingGravity;
-        //Debug.Log("Jumpy Jump");
     }
 
-    public void OnLanding()
-    {
-        //animator.setBoolIsJumping false
-    }
     private void UpdatePlayerInput()
     {
-        _input = _playerControls.Base.Movement.ReadValue<Vector2>();
+        _input = _playerControls.Base.Navigation.ReadValue<Vector2>();
         float moveX = 0f;
         float moveY = 0f;
-
         if(_playerControls.Base.Jump.WasPressedThisFrame())
         {
             _isTryingToJump = true;
@@ -304,15 +345,17 @@ public class PlayerController : MonoBehaviour
         {
             _isTryingToJump = false;
         }
-
-        //Movement direction check for sprite flip
-        if(_input.x > 0)
+        if (_isInputEnabled)
         {
-            moveX += 1f;
-        }
-        if (_input.x < 0)
-        {
-            moveX -= 1f;
+            //Movement direction check for sprite flip
+            if(_input.x > 0)
+            {
+                moveX += 1f;
+            }
+            if (_input.x < 0)
+            {
+                moveX -= 1f;
+            }
         }
 
         _direction = new Vector2(moveX, moveY).normalized;
