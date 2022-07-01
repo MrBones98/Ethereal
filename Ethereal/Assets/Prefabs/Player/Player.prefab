@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 8312976081176866603}
   - component: {fileID: 8312976081176866600}
   - component: {fileID: 8312976081176866607}
+  - component: {fileID: 1367455975559939196}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -185,21 +186,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _walkingSpeed: 78
   _runningSpeed: 240
-  _jumpPower: 15
-  _xAxisWallJumpForce: 0
-  _yAxisWallJumpForce: 0
+  _jumpPower: 12
+  _horizontalWallForce: 300
+  _verticalWallForce: 6.9
+  _wallJumpDuration: 1
   _fallingGravity: 12
   _groundCheckPos: {fileID: 8312976081775095114}
-  _frontCheckPos: {fileID: 0}
+  _frontCheckPos: {fileID: 4001194813924605618}
   _groundCheckRadius: 0.1
-  _wallCheckRadius: 0
+  _wallCheckRadius: 0.1
   _sprite: {fileID: 8312976081176866773}
   _jumpTime: 0.2
-  _dashLenght: 0
-  _jumpCountValue: 0
-  _dashDuration: 0
-  _dashCooldown: 0
-  _controllerAnalogRunningValue: 0
+  _dashLenght: 4
+  _jumpCountValue: 2
+  _dashDuration: 0.2
+  _dashCooldown: 1
+  _controllerAnalogRunningValue: 0.7
   Ground:
     serializedVersion: 2
     m_Bits: 64
@@ -283,12 +285,24 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.93, y: 1.4}
+  m_Size: {x: 0.87, y: 1.41}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1367455975559939196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8312976081176866773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37a35adafbb04e46a639550bed7e0a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8312976081775095157
 GameObject:
   m_ObjectHideFlags: 0

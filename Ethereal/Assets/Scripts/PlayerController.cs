@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Range(0.2f, 1.0f)] private float _dashCooldown;
     [SerializeField] [Range(0.5f, 0.9f)] private float _controllerAnalogRunningValue;
 
+    [Header("Pause Menu Canvas")]
+    [SerializeField] private GameObject _pauseMenu;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -85,6 +87,19 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         UpdatePlayerInput();
+
+        //Checking for pause menu interaction
+        if (_playerControls.Base.OpenMenu.triggered)
+        {
+            if (_pauseMenu.activeSelf == false)
+            {
+                PauseGame();
+            }
+            else
+            {
+                ResumeGame();
+            }
+        }
 
         _isGrounded = Physics2D.OverlapCircle(_groundCheckPos.position, _groundCheckRadius, Ground);
         _wallCollision = Physics2D.OverlapCircle(_frontCheckPos.position, _wallCheckRadius, Ground);
@@ -331,7 +346,17 @@ public class PlayerController : MonoBehaviour
         _rigidbody.velocity = Vector2.up * _jumpPower;
         _rigidbody.gravityScale = _fallingGravity;
     }
+    public void PauseGame()
+    {
+        _pauseMenu?.SetActive(true);
+        Time.timeScale = 0;
+    }
+    public void ResumeGame()
+    {
 
+        _pauseMenu?.SetActive(false);
+        Time.timeScale = 1;
+    }
     private void UpdatePlayerInput()
     {
         _input = _playerControls.Base.Navigation.ReadValue<Vector2>();
