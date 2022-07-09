@@ -10,6 +10,8 @@ public class PotionSeller : MonoBehaviour
     [SerializeField] private GameObject _canvas;
     [SerializeField] private List<GameObject> _text;
 
+
+    private BoxCollider2D _promptTextCollider;
     private bool _potionsCollected = false;
     private bool _interacting = false;
     private int _index = 0;
@@ -21,6 +23,7 @@ public class PotionSeller : MonoBehaviour
     {
         PotionSelector.onAllPotionsCollected += OnAllPotionsCollected;
         _playerControls = new PlayerControls();
+        _promptTextCollider = gameObject.GetComponent<BoxCollider2D>();
     }
     private void OnEnable()
     {
@@ -30,11 +33,14 @@ public class PotionSeller : MonoBehaviour
     {
         _potionsCollected = true;  
     }
-
+    private void Start()
+    {
+        StartCoroutine(nameof(FirstDialogueLoader));
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerController playerController = collision.GetComponent<PlayerController>();
-        if (playerController != null)
+        PlayerMarker playerMarker= collision.GetComponent<PlayerMarker>();
+        if (playerMarker != null)
         {
             _interactTextObject.SetActive(true);
         }
@@ -58,7 +64,11 @@ public class PotionSeller : MonoBehaviour
             _interacting = true;
         }
     }
-
+    private IEnumerator FirstDialogueLoader()
+    {
+        yield return new WaitForSeconds(2f);
+        _promptTextCollider.enabled = true;
+    }
     private void CheckPlayerInteraction()
     {
         //&& _potionsCollected == false events doing something fucky oh no daniel ahhhhh

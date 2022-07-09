@@ -1,43 +1,40 @@
 fileFormatVersion: 2
-guid: bd06465e62da4374d992dcf23332b6ed
+guid: 4dfeaddb23ae45f47965ea1a5a8e3e82
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8725295768643428024
-    second: Foliage_and_stones_0
+      213: 2346232511822421569
+    second: UlWithMousePointers_0
   - first:
-      213: -7007034033513326638
-    second: Foliage_and_stones_1
+      213: -1338685579183422099
+    second: UlWithMousePointers_1
   - first:
-      213: -7742171909598831487
-    second: Foliage_and_stones_2
+      213: -7798707813719442155
+    second: UlWithMousePointers_2
   - first:
-      213: 7561615852962999405
-    second: Foliage_and_stones_3
+      213: -7693253549280606339
+    second: UlWithMousePointers_3
   - first:
-      213: 3460917763713477154
-    second: Foliage_and_stones_4
+      213: -8365616562055297899
+    second: UlWithMousePointers_4
   - first:
-      213: -2719853499103531986
-    second: Foliage_and_stones_5
+      213: 2896998088518272613
+    second: UlWithMousePointers_5
   - first:
-      213: 2995904260186793708
-    second: Foliage_and_stones_6
+      213: -1133163686064203993
+    second: UlWithMousePointers_6
   - first:
-      213: 1296447260286517976
-    second: Foliage_and_stones_7
+      213: 7311000848111087593
+    second: UlWithMousePointers_7
   - first:
-      213: -5600179628825572681
-    second: Foliage_and_stones_8
+      213: -79674570413340698
+    second: UlWithMousePointers_8
   - first:
-      213: -4095410951675218534
-    second: Foliage_and_stones_10
+      213: -5124152410156170898
+    second: UlWithMousePointers_9
   - first:
-      213: 5421387907612098996
-    second: Foliage_and_stones_11
-  - first:
-      213: -6421225665404404803
-    second: Foliage_and_stones_12
+      213: 833997242698379313
+    second: UlWithMousePointers_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,253 +124,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Foliage_and_stones_0
+      name: UlWithMousePointers_0
       rect:
         serializedVersion: 2
-        x: 110
-        y: 922
-        width: 134
-        height: 113
+        x: 127
+        y: 804
+        width: 1672
+        height: 133
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8412acd1ab589e680800000000000000
-      internalID: -8725295768643428024
+      spriteID: 14ed5a3e90e7f8020800000000000000
+      internalID: 2346232511822421569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Foliage_and_stones_1
+      name: UlWithMousePointers_1
       rect:
         serializedVersion: 2
-        x: 326
-        y: 847
-        width: 240
-        height: 171
+        x: 139
+        y: 701
+        width: 100
+        height: 104
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d79d5fdba302ce90800000000000000
-      internalID: -7007034033513326638
+      spriteID: d6585d2fe880c6de0800000000000000
+      internalID: -1338685579183422099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Foliage_and_stones_2
+      name: UlWithMousePointers_2
       rect:
         serializedVersion: 2
-        x: 880
-        y: 826
-        width: 150
-        height: 123
+        x: 377
+        y: 679
+        width: 169
+        height: 147
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18c9a520ba74e8490800000000000000
-      internalID: -7742171909598831487
+      spriteID: 51d7030109c65c390800000000000000
+      internalID: -7798707813719442155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Foliage_and_stones_3
+      name: UlWithMousePointers_3
       rect:
         serializedVersion: 2
-        x: 1145
-        y: 827
-        width: 133
-        height: 99
+        x: 631
+        y: 669
+        width: 141
+        height: 163
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6c62db1e8140f860800000000000000
-      internalID: 7561615852962999405
+      spriteID: d77cd1458a21c3590800000000000000
+      internalID: -7693253549280606339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Foliage_and_stones_4
+      name: UlWithMousePointers_4
       rect:
         serializedVersion: 2
-        x: 1396
-        y: 818
-        width: 242
-        height: 172
+        x: 904
+        y: 690
+        width: 123
+        height: 132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22a2bfe8e56a70030800000000000000
-      internalID: 3460917763713477154
+      spriteID: 594c19b4f0c57eb80800000000000000
+      internalID: -8365616562055297899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Foliage_and_stones_5
+      name: UlWithMousePointers_5
       rect:
         serializedVersion: 2
-        x: 33
-        y: 687
-        width: 260
-        height: 158
+        x: 1150
+        y: 665
+        width: 132
+        height: 144
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2ca4d827a3214ad0800000000000000
-      internalID: -2719853499103531986
+      spriteID: 5660e1d9964343820800000000000000
+      internalID: 2896998088518272613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Foliage_and_stones_6
+      name: UlWithMousePointers_6
       rect:
         serializedVersion: 2
-        x: 650
-        y: 822
-        width: 99
-        height: 88
+        x: 1409
+        y: 669
+        width: 131
+        height: 145
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce663893d07939920800000000000000
-      internalID: 2995904260186793708
+      spriteID: 72755cb91a13640f0800000000000000
+      internalID: -1133163686064203993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Foliage_and_stones_7
+      name: UlWithMousePointers_7
       rect:
         serializedVersion: 2
-        x: 1706
-        y: 831
-        width: 84
-        height: 59
+        x: 260
+        y: 672
+        width: 106
+        height: 131
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d208631ae7edf110800000000000000
-      internalID: 1296447260286517976
+      spriteID: 9efad383984e57560800000000000000
+      internalID: 7311000848111087593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Foliage_and_stones_8
+      name: UlWithMousePointers_8
       rect:
         serializedVersion: 2
-        x: 19
-        y: 46
-        width: 557
-        height: 553
+        x: 208
+        y: 234
+        width: 239
+        height: 252
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ba09717c4a2842b0800000000000000
-      internalID: -5600179628825572681
+      spriteID: 6e781ec7660f4eef0800000000000000
+      internalID: -79674570413340698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Foliage_and_stones_10
+      name: UlWithMousePointers_9
       rect:
         serializedVersion: 2
-        x: 390
-        y: 596
-        width: 256
-        height: 186
+        x: 608
+        y: 234
+        width: 223
+        height: 268
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a957728107d2a27c0800000000000000
-      internalID: -4095410951675218534
+      spriteID: e610ea9288a53e8b0800000000000000
+      internalID: -5124152410156170898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Foliage_and_stones_11
+      name: UlWithMousePointers_10
       rect:
         serializedVersion: 2
-        x: 677
-        y: 43
-        width: 452
-        height: 666
+        x: 1014
+        y: 284
+        width: 170
+        height: 179
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b141d60493ac3b40800000000000000
-      internalID: 5421387907612098996
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Foliage_and_stones_12
-      rect:
-        serializedVersion: 2
-        x: 1335
-        y: 39
-        width: 528
-        height: 654
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbbf2f6474933e6a0800000000000000
-      internalID: -6421225665404404803
+      spriteID: 13031b2d214f29b00800000000000000
+      internalID: 833997242698379313
       vertices: []
       indices: 
       edges: []

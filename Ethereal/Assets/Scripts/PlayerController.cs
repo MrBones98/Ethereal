@@ -39,6 +39,12 @@ public class PlayerController : MonoBehaviour
     [Header("Pause Menu Canvas")]
     [SerializeField] private GameObject _pauseMenu;
 
+    [Header("Miscellaneous UI Elements")]
+    [SerializeField] private GameObject _prompts;
+
+    [Header("Dash Particles")]
+    [SerializeField] private GameObject _blinkSmoke;
+
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private Vector3 _playerScale; //to flipping the sprite
@@ -119,7 +125,7 @@ public class PlayerController : MonoBehaviour
         {
             _isTryingToJump = false;
         }
-        if (_rigidbody.velocity.y > 0)
+        if (_rigidbody.velocity.y > 0 && _isGrounded == false)
         {
             _animator.SetBool("IsJumping", true);
             _animator.SetBool("IsFalling", false);
@@ -278,6 +284,7 @@ public class PlayerController : MonoBehaviour
             _rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
             if (_isTryingToDash && CanDash())
             {
+                Instantiate(_blinkSmoke, _groundCheckPos);
                 StartDash();
                 //_animator.SetBool("IsBlinking", false);
             }
@@ -348,6 +355,7 @@ public class PlayerController : MonoBehaviour
     }
     public void PauseGame()
     {
+        _prompts?.SetActive(false);
         _pauseMenu?.SetActive(true);
         Time.timeScale = 0;
     }
@@ -355,6 +363,7 @@ public class PlayerController : MonoBehaviour
     {
 
         _pauseMenu?.SetActive(false);
+        _prompts?.SetActive(true);
         Time.timeScale = 1;
     }
     private void UpdatePlayerInput()
