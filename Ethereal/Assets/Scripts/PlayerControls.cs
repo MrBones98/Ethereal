@@ -89,6 +89,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Grapple"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf77b3a1-5668-4bdd-a8ef-66906a10211a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -399,6 +408,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""OpenMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""820c15b6-7895-4a88-b8f5-20829ea88834"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grapple"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d90ebdf-1073-4ce0-937f-3d9def2d5cd6"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grapple"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -414,6 +445,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Base_MenuBack = m_Base.FindAction("MenuBack", throwIfNotFound: true);
         m_Base_MenuSelect = m_Base.FindAction("MenuSelect", throwIfNotFound: true);
         m_Base_OpenMenu = m_Base.FindAction("OpenMenu", throwIfNotFound: true);
+        m_Base_Grapple = m_Base.FindAction("Grapple", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -480,6 +512,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Base_MenuBack;
     private readonly InputAction m_Base_MenuSelect;
     private readonly InputAction m_Base_OpenMenu;
+    private readonly InputAction m_Base_Grapple;
     public struct BaseActions
     {
         private @PlayerControls m_Wrapper;
@@ -491,6 +524,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @MenuBack => m_Wrapper.m_Base_MenuBack;
         public InputAction @MenuSelect => m_Wrapper.m_Base_MenuSelect;
         public InputAction @OpenMenu => m_Wrapper.m_Base_OpenMenu;
+        public InputAction @Grapple => m_Wrapper.m_Base_Grapple;
         public InputActionMap Get() { return m_Wrapper.m_Base; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -521,6 +555,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @OpenMenu.started -= m_Wrapper.m_BaseActionsCallbackInterface.OnOpenMenu;
                 @OpenMenu.performed -= m_Wrapper.m_BaseActionsCallbackInterface.OnOpenMenu;
                 @OpenMenu.canceled -= m_Wrapper.m_BaseActionsCallbackInterface.OnOpenMenu;
+                @Grapple.started -= m_Wrapper.m_BaseActionsCallbackInterface.OnGrapple;
+                @Grapple.performed -= m_Wrapper.m_BaseActionsCallbackInterface.OnGrapple;
+                @Grapple.canceled -= m_Wrapper.m_BaseActionsCallbackInterface.OnGrapple;
             }
             m_Wrapper.m_BaseActionsCallbackInterface = instance;
             if (instance != null)
@@ -546,6 +583,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @OpenMenu.started += instance.OnOpenMenu;
                 @OpenMenu.performed += instance.OnOpenMenu;
                 @OpenMenu.canceled += instance.OnOpenMenu;
+                @Grapple.started += instance.OnGrapple;
+                @Grapple.performed += instance.OnGrapple;
+                @Grapple.canceled += instance.OnGrapple;
             }
         }
     }
@@ -559,5 +599,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnMenuBack(InputAction.CallbackContext context);
         void OnMenuSelect(InputAction.CallbackContext context);
         void OnOpenMenu(InputAction.CallbackContext context);
+        void OnGrapple(InputAction.CallbackContext context);
     }
 }

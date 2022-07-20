@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4528792938077582970
 Transform:
@@ -97,7 +97,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timer: 0
+  _movingSpeed: 0
   _breakable: 0
+  _movingPlatform: 0
+  _animator: {fileID: 0}
+  _movingPlatformLevelPos: []
 --- !u!61 &5386614288809785120
 BoxCollider2D:
   m_ObjectHideFlags: 0

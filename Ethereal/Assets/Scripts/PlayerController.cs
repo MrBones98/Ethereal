@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _frontCheckPos;
     [SerializeField] private float _groundCheckRadius;
     [SerializeField] private float _wallCheckRadius;
+    [SerializeField] private Transform _grappleHookDirection;
 
     [SerializeField] private GameObject _sprite; //to access player sprite for flipping
     [SerializeField] private float _jumpTime;
@@ -44,21 +45,26 @@ public class PlayerController : MonoBehaviour
 
     [Header("Dash Particles")]
     [SerializeField] private GameObject _blinkSmoke;
+    [SerializeField] private Transform _blinkSmokePos;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private Vector3 _playerScale; //to flipping the sprite
     private Vector2 _direction;
     private Vector2 _input;
+    private Vector2 _grappleDirection;
     private float _wallJumpCount;
     private float _timeSinceDash;
     private float _originalGravity;
     private float _jumpTimeCounter;
+    private float _grappleDistance;
     private int _speed;
     private int _jumpCount; //implement
     private bool _isInputEnabled = true;
     private bool _isTryingToJump = false;
     private bool _isTryingToDash = false;
+    private bool _isTryingToGrapple = false;
+    private bool _holdingGrapple = false;
     private bool _canMove = true;
     //private bool _isDashing = false;
     private bool _isJumping = false;
@@ -84,7 +90,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _timeSinceDash = 0f;
-        _wallJumpCount = 0f;  
+        _wallJumpCount = 0f;
+        _grappleDistance = Vector2.Distance(transform.position, _grappleHookDirection.position);
     }
     private void OnEnable()
     {
@@ -106,15 +113,49 @@ public class PlayerController : MonoBehaviour
                 ResumeGame();
             }
         }
-
+        //Yeah fucking add layers for wall collision and might as well for grappling ones
         _isGrounded = Physics2D.OverlapCircle(_groundCheckPos.position, _groundCheckRadius, Ground);
         _wallCollision = Physics2D.OverlapCircle(_frontCheckPos.position, _wallCheckRadius, Ground);
 
+        //Debug.Log(_isTryingToGrapple);
+
+        if (_playerControls.Base.Grapple.triggered)
+        {
+            _isTryingToGrapple = true;
+            //Debug.Log(CanGrapple());
+        }
+        else
+        {
+            _isTryingToGrapple = false;
+        }
+        if(_playerControls.Base.Grapple.ReadValue<float>() == 1)
+        {
+            _holdingGrapple = true;
+        }
+        else if (_playerControls.Base.Grapple.WasReleasedThisFrame())
+        {
+            _holdingGrapple = false;
+        }
+        
+        //Might be unnecessary check it outover the weekend now that I'm goiung over grappling agaaaain CHAO MAMAHUEVO ESTO NONO AH EHHH
+        //if (_isTryingToGrapple)
+        //{
+        //    _animator.SetBool("GrapplingStarted", true);
+        //}
+        //else
+        //{
+        //    _animator.SetBool("GrapplingStarted", false);
+        //}
         //for idle/walk/running animations. Do the same for jumping with _direction.y?/_rigidbody.velocity.y maybe
         _animator.SetFloat("Speed", Mathf.Abs(_direction.x));
         _animator.SetBool("Landed", _isGrounded);
         _animator.SetBool("IsBlinking", IsDashing());
         _animator.SetBool("IsHangingFromWall", _hangingFromWall);
+
+        //Same, check if it's redundaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaant
+        _animator.SetBool("GrapplingInput", _isTryingToGrapple);
+        _animator.SetBool("HoldingGrapple", _holdingGrapple);
+
 
         //checking for Jump Input
         if (_playerControls.Base.Jump.triggered)
@@ -148,8 +189,6 @@ public class PlayerController : MonoBehaviour
 
         _timeSinceDash += Time.deltaTime;
 
-        //&& _isGrounded think about this
-        //if (Input.GetKey(KeyCode.LeftShift))
         if (_input.x > _controllerAnalogRunningValue || _input.x < -_controllerAnalogRunningValue)
         {
             _speed = _runningSpeed;
@@ -160,9 +199,6 @@ public class PlayerController : MonoBehaviour
             _speed = _walkingSpeed;
             _animator.SetBool("Sprint", false);
         }
-
-        //Debug.Log($"Is grounded: {_isGrounded}");
-        //Debug.Log($"Is trying to Jump: {_isTryingToJump}");
 
         // Setting according gravity scale
         if (_isGrounded)
@@ -181,9 +217,9 @@ public class PlayerController : MonoBehaviour
         }
 
         //Doing Wall Jump check
-        if(!_isGrounded && _wallCollision && _input.x !=0 && !_isWallJumping)
+        //if(!_isGrounded && _wallCollision && _input.x !=0 && !_isWallJumping)
+        if( _wallCollision && _input.x !=0 && !_isWallJumping)
         {
-            Debug.Log("Going where you're not suposed to code ahh");
             _hangingFromWall = true;
             //Debug.Log($"Wall collision is: {_wallCollision}");
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
@@ -194,13 +230,16 @@ public class PlayerController : MonoBehaviour
             _hangingFromWall = false;
         }
         //Debug.Log($"The player is hanging from wall: {_hangingFromWall}");
-        //Checking for Jump
         
+        //Checking for Jump
         JumpInputCheck();
         //BRRRRRRRRRROOOOOOOOOOOOOOOOOO FIX THIS WTFFFFF RIGIDBODY MAAAAAAN COÑOOOOOOOOOO
-
+        if (_isTryingToGrapple)
+        {
+            Grapple();
+        }
         FacingDirection();
-        Debug.Log(_hangingFromWall);
+        //Debug.Log(_hangingFromWall);
         //Debug.Log($"The player is trying to dash: {_isTryingToDash}");
         //Debug.Log($"The player can dash: {CanDash()}");
         //Debug.Log($"Is the player dashing? {IsDashing()}");
@@ -256,7 +295,8 @@ public class PlayerController : MonoBehaviour
         //float direction = _input.x;
         //_rigidbody.velocity = new Vector2(_horizontalWallForce * -direction, _verticalWallForce);
         //Debug.Log(_rigidbody.velocity);
-        //_rigidbody.AddForce(new Vector2(_horizontalWallForce * -transform.localScale.x, _verticalWallForce),ForceMode2D.Impulse);
+        _rigidbody.AddForce(new Vector2(_horizontalWallForce * -transform.localScale.x, _verticalWallForce),ForceMode2D.Impulse);
+        Debug.Log($"The wall jump velocity is {_rigidbody.velocity}");
         if(_jumpCount > 0)
         {
             _jumpCount += 1;
@@ -279,25 +319,57 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         //_rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
-        if (!IsDashing() && _isInputEnabled && !_isWallJumping)
+        //if(_isTryingToGrapple && CanGrapple())
+        //{
+        //    _rigidbody.gravityScale = 0f;
+        //    _rigidbody.velocity = Vector2.MoveTowards(transform.position, _grappleDirection, _grappleDistance);
+        //    //_rigidbody.MovePosition(_grappleDirection);
+        //    ////_grappleDirection = new Vector2(0f, 0f);
+        //    _rigidbody.gravityScale = _originalGravity;
+        //}
+        //if (!IsDashing() && _isInputEnabled && !_isWallJumping && !_isTryingToGrapple)
+        //if (_isTryingToGrapple)
+        //{
+        //    Grapple();
+        //}
+        if (!IsDashing() && _isInputEnabled && !_isWallJumping && !_holdingGrapple)
         {
             _rigidbody.velocity = new Vector2(_direction.x *_speed* Time.deltaTime,_rigidbody.velocity.y);
-            if (_isTryingToDash && CanDash())
-            {
-                Instantiate(_blinkSmoke, _groundCheckPos);
-                StartDash();
-                //_animator.SetBool("IsBlinking", false);
-            }
+                if (_isTryingToDash && CanDash() && !_hangingFromWall)
+                {
+                    Instantiate(_blinkSmoke, _blinkSmokePos);
+                    StartDash();
+                    //_animator.SetBool("IsBlinking", false);
+                }
         }
-        //JumpInputCheck();
-        //For later add clear method call for groundcheck, check neon runner perhaps and do callculations through parameters
     }
 
+    //private Vector2 CanGrapple()
+    //{
+    //    float distance = Vector2.Distance(transform.position, _grappleHookDirection.position);
+    //    RaycastHit2D hit = Physics2D.Raycast(transform.position, _grappleHookDirection.position, distance, Ground);
+    //    if (hit.collider != null)
+    //    {
+    //        return _grappleDirection = transform.position - hit.collider.transform.position;
+            
+    //    }
+    //    else { return; }
+    //}
+    private void Grapple()
+    {
+        //Add a different Layer for the grapplingHook allowed platforms
+        float distance = Vector2.Distance(transform.position, _grappleHookDirection.position);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, _grappleHookDirection.position, distance, Ground);
+        Debug.Log("Grappling");
+        if (hit && _holdingGrapple)
+        {
+            Debug.Log(hit);
+            Debug.Log(hit.collider.gameObject.name);
+            _rigidbody.velocity = Vector2.Lerp(transform.position, hit.point, 0.5f);
+        }
+    }
     private void StartDash()
     {
-        //_animator.SetBool("IsBlinking", true);
-        //Vector2 dashPosition = ((Vector2)transform.position + _direction * _dashLenght);
-        //Vector2 dashPosition = ((Vector2)transform.position + (Vector2)transform.forward * _dashLenght);
         Vector2 dashPosition = ((Vector2)transform.position + new Vector2(_sprite.transform.localScale.x,0) * _dashLenght);
         Vector2 dashVelocity = (dashPosition - (Vector2)transform.position) / _dashDuration;
 
@@ -311,6 +383,7 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(_groundCheckPos.position, _groundCheckRadius);
         Gizmos.DrawSphere(_frontCheckPos.position, _wallCheckRadius);
+        Gizmos.DrawLine(transform.position, _grappleHookDirection.position);
     }
 
     private void ExtendedJump()
@@ -328,13 +401,16 @@ public class PlayerController : MonoBehaviour
 
     private void FacingDirection()
     {
-        if (_direction.x < 0)
+        if (!_holdingGrapple)
         {
-            _sprite.transform.localScale = new Vector3(-_playerScale.x, _playerScale.y, _playerScale.z);
-        }
-        else if(_direction.x > 0)
-        {
-            _sprite.transform.localScale = new Vector3(_playerScale.x, _playerScale.y, _playerScale.z);
+            if (_direction.x < 0)
+            {
+                _sprite.transform.localScale = new Vector3(-_playerScale.x, _playerScale.y, _playerScale.z);
+            }
+            else if(_direction.x > 0)
+            {
+                _sprite.transform.localScale = new Vector3(_playerScale.x, _playerScale.y, _playerScale.z);
+            }
         }
         //Here later will most likely all be replaces with setBools for animaiton states from the animator, this is just a showcase of easy flipping
         
@@ -342,12 +418,6 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        //Vector2 newVelocity = new Vector2();
-        //newVelocity.x = _rigidbody.velocity.x;
-        //newVelocity.y = _jumpPower;
-        //_rigidbody.AddForce(new Vector2(0f,_jumpPower));
-
-        //_rigidbody.velocity = newVelocity;
         _isJumping = true;
         _jumpTimeCounter = _jumpTime;
         _rigidbody.velocity = Vector2.up * _jumpPower;

@@ -57,6 +57,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &5014935158850797478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 127118474345050890}
+  m_Layer: 0
+  m_Name: DashParticlePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &127118474345050890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5014935158850797478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7, y: -0.629, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8312976081176866601}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5393444040186232455
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8312976081176866601
 Transform:
   m_ObjectHideFlags: 0
@@ -207,6 +237,8 @@ Transform:
   - {fileID: 1353209180}
   - {fileID: 4001194813924605618}
   - {fileID: 82831846}
+  - {fileID: 8303435451700535933}
+  - {fileID: 127118474345050890}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -254,6 +286,7 @@ MonoBehaviour:
   _frontCheckPos: {fileID: 4001194813924605618}
   _groundCheckRadius: 0.25
   _wallCheckRadius: 0.1
+  _grappleHookDirection: {fileID: 0}
   _sprite: {fileID: 8312976081176866773}
   _jumpTime: 0.2
   _dashLenght: 4
@@ -262,7 +295,9 @@ MonoBehaviour:
   _dashCooldown: 1
   _controllerAnalogRunningValue: 0.7
   _pauseMenu: {fileID: 0}
+  _prompts: {fileID: 0}
   _blinkSmoke: {fileID: 5647006572336106978, guid: 4bef41155ee4703409ca37496b7232d0, type: 3}
+  _blinkSmokePos: {fileID: 127118474345050890}
   Ground:
     serializedVersion: 2
     m_Bits: 64
@@ -421,6 +456,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.43980187}
   m_EdgeRadius: 0
+--- !u!1 &9177244971787525555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8303435451700535933}
+  - component: {fileID: 6791477269595160038}
+  m_Layer: 0
+  m_Name: GrapplingHook
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8303435451700535933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9177244971787525555}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.638, y: 0.498, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8312976081176866601}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &6791477269595160038
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9177244971787525555}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
 --- !u!1001 &1307968742515020838
 PrefabInstance:
   m_ObjectHideFlags: 0

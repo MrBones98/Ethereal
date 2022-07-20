@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platforms_L01
       objectReference: {fileID: 0}
+    - target: {fileID: 3532939301088787184, guid: 5cf426e85af525d47a88e914702cea91, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3532939301088787188, guid: 5cf426e85af525d47a88e914702cea91, type: 3}
       propertyPath: _breakable
       value: 1
